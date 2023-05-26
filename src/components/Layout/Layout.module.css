@@ -1,0 +1,28 @@
+.container {
+	padding: 16px;
+}
+
+.header {
+	background-color: rgba(0, 111, 111, 0.741);
+	margin-bottom: 30px;
+}
+
+.list {
+	display: flex;
+	gap: 32px;
+}
+
+.item {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.navLink {
+	text-decoration: none;
+	color: cornsilk;
+	transition: color 250ms ease;
+}
+
+.navLink:hover {
+	color: rgb(194, 124, 43);
+}
