@@ -19,7 +19,7 @@ export default function MovieDetails() {
 			<Link to={"cast"}>Cast</Link>
 			<Link to={"reviews"}>Reviews</Link>
 
-			<Outlet />
+			<Outlet id={movieId} />
 		</>
 	);
 }
