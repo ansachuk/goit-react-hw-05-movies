@@ -8,6 +8,7 @@ axios.defaults.headers.common["Authorization"] =
 export const fetchTrendingMovies = async () => {
 	try {
 		const trending = await axios.get(`trending/movie/day`);
+		console.log("trending.data", trending.data.results);
 
 		return trending.data.results;
 	} catch (error) {
@@ -18,7 +19,7 @@ export const fetchTrendingMovies = async () => {
 export const fetchMovieById = async id => {
 	try {
 		const movie = await axios.get(`movie/${id}`);
-		// console.log(movie.data);
+		console.log(movie.data);
 
 		return movie.data;
 	} catch (error) {
@@ -29,9 +30,9 @@ export const fetchMovieById = async id => {
 export const fetchCastById = async id => {
 	try {
 		const cast = await axios.get(`movie/${id}/credits`);
-		console.log(cast.data.results);
+		console.log(cast.data.cast);
 
-		return cast.data.results;
+		return cast.data.cast;
 	} catch (error) {
 		Notify.failure(`${error.message}`);
 	}

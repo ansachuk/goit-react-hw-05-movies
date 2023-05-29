@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import Homepage from "pages/Homepage";
-import Movies from "pages/Movies";
-import MovieDetails from "pages/MovieDetails";
+import Homepage from "pages/Homepage/Homepage";
+import Movies from "pages/Movies/Movies";
+import MovieDetails from "pages/MovieDetails/MovieDetails";
 
 import Cast from "components/Cast/Cast";
 import Reviews from "components/Reviews/Reviews";

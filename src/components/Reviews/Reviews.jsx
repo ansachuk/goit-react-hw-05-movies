@@ -14,12 +14,16 @@ export default function Reviews() {
 
 	return (
 		<ul>
-			{reviews?.map(review => (
-				<li key={review.id}>
-					<h3>Author:{review.author}</h3>
-					<p>{review.content}</p>
-				</li>
-			))}
+			{reviews?.length ? (
+				reviews.map(review => (
+					<li key={review.id}>
+						<h3>Author:{review.author}</h3>
+						<p>{review.content}</p>
+					</li>
+				))
+			) : (
+				<p>Here no reviews yet!</p>
+			)}
 		</ul>
 	);
 }

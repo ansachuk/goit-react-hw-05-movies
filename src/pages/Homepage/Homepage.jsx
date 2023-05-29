@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 
+import MovieItem from "components/MovieItem/MovieItem";
+
+import css from "./Homepage.module.scss";
+
 export default function Homepage({ trendingMovies }) {
 	return (
 		<>
-			<h1>Trending now !</h1>
-			<div>
+			<h1 className={css.title}>Trending now !</h1>
+			<div className={css.wrapper}>
 				{trendingMovies?.map(movie => (
 					<Link key={movie.id} to={`movies/${movie.id}`}>
-						{movie.title}
+						<MovieItem movie={movie} />
 					</Link>
 				))}
 			</div>

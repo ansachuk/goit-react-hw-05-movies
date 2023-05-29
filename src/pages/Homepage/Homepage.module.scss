@@ -1,0 +1,27 @@
+.title {
+	margin-bottom: 40px;
+}
+
+.wrapper {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px;
+
+	& a {
+		width: calc((100% - 32px) / 5);
+		overflow: hidden;
+
+		margin-bottom: 16px;
+
+		filter: grayscale(0.3);
+
+		transition: filter 200ms ease;
+		transition: transform 200ms ease;
+	}
+
+	& a:hover {
+		filter: grayscale(0);
+		transform: scale(1.03);
+	}
+}
