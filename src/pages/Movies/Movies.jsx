@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 
 // import { Notify } from "notiflix/build/notiflix-notify-aio";
 // import debounce from "lodash.debounce";
@@ -12,6 +12,8 @@ export default function Movies() {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [searchedMovies, setSearchedMovies] = useState(null);
 	const query = searchParams.get("query") ?? "";
+
+	const location = useLocation();
 
 	const updateSearchParams = query => {
 		const nextSearchParams = query !== "" ? { query } : {};
@@ -39,7 +41,7 @@ export default function Movies() {
 			{searchedMovies && (
 				<div className={css.wrapper}>
 					{searchedMovies.map(movie => (
-						<Link key={movie.id} to={`${movie.id}`}>
+						<Link key={movie.id} to={`${movie.id}`} state={{ from: location }}>
 							<MovieItem movie={movie} />
 						</Link>
 					))}

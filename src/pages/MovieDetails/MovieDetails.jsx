@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Suspense, useEffect, useState } from "react";
+import { Link, Outlet, useParams, useLocation } from "react-router-dom";
 import { fetchMovieById } from "utils/fetchMovies";
 
 import css from "./MovieDetails.module.scss";
+import Fallback from "components/Fallback/Fallback";
 
 export default function MovieDetails() {
 	const [movie, setMovie] = useState(null);
 	const { movieId } = useParams();
+
+	const location = useLocation();
+	const backLinkHref = location.state?.from ?? "/movies";
 
 	useEffect(() => {
 		if (!movie) {
@@ -19,7 +23,7 @@ export default function MovieDetails() {
 	return (
 		movie && (
 			<>
-				<Link to={"/movies"}>Back</Link>
+				<Link to={backLinkHref}>Back</Link>
 				<div className={css.wrapper}>
 					<img
 						loading="lazy"
@@ -45,10 +49,16 @@ export default function MovieDetails() {
 						<p className={css.status}>{movie.status}</p>
 					</div>
 				</div>
-				<Link to={"cast"}>Cast</Link>
-				<Link to={"reviews"}>Reviews</Link>
+				<Link to={"cast"} state={{ from: backLinkHref }}>
+					Cast
+				</Link>
+				<Link to={"reviews"} state={{ from: backLinkHref }}>
+					Reviews
+				</Link>
 
-				<Outlet id={movieId} />
+				<Suspense fallback={<Fallback />}>
+					<Outlet id={movieId} />
+				</Suspense>
 			</>
 		)
 	);
