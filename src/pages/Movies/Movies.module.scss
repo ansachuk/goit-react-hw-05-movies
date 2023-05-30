@@ -1,14 +1,11 @@
-img {
-	width: 100%;
-}
 .wrapper {
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	gap: 8px;
 
-	& li {
-		width: calc((100% - 72px) / 10);
+	& a {
+		width: calc((100% - 32px) / 5);
 		overflow: hidden;
 
 		margin-bottom: 16px;
@@ -19,17 +16,8 @@ img {
 		transition: transform 200ms ease;
 	}
 
-	& li:hover {
+	& a:hover {
 		filter: grayscale(0);
 		transform: scale(1.03);
-	}
-
-	h3 {
-		font-size: 14px;
-		color: black;
-	}
-	h4 {
-		font-size: 14px;
-		color: rgb(94, 24, 24);
 	}
 }

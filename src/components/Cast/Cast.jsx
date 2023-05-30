@@ -14,7 +14,7 @@ export default function Cast() {
 		}
 	}, [movieId, cast]);
 	return cast?.length ? (
-		<ul>
+		<ul className={css.wrapper}>
 			{cast?.map(
 				person =>
 					person.profile_path && (
@@ -26,7 +26,7 @@ export default function Cast() {
 								src={`https://image.tmdb.org/t/p/w500/${person.profile_path}`}
 							/>
 
-							<h3>Name:{person.name}</h3>
+							<h3>{person.name}</h3>
 							<h4>Character:{person.character}</h4>
 						</li>
 					),

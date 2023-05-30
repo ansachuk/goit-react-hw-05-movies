@@ -19,6 +19,7 @@ export default function MovieDetails() {
 	return (
 		movie && (
 			<>
+				<Link to={"/movies"}>Back</Link>
 				<div className={css.wrapper}>
 					<img
 						loading="lazy"

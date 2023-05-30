@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import Homepage from "pages/Homepage/Homepage";
@@ -9,19 +9,11 @@ import Cast from "components/Cast/Cast";
 import Reviews from "components/Reviews/Reviews";
 import Layout from "components/Layout/Layout";
 
-import { fetchTrendingMovies } from "../../utils/fetchMovies";
-
 const App = () => {
-	const [trendingMovies, setTrendingMovies] = useState(null);
-
-	useEffect(() => {
-		fetchTrendingMovies().then(setTrendingMovies);
-	}, []);
-
 	return (
 		<Routes>
 			<Route path="/" element={<Layout />}>
-				<Route index element={<Homepage trendingMovies={trendingMovies} />} />
+				<Route index element={<Homepage />} />
 				<Route path="/movies" element={<Movies />} />
 				<Route path="/movies/:movieId" element={<MovieDetails />}>
 					<Route path="cast" element={<Cast />} />

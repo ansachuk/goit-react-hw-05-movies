@@ -48,3 +48,14 @@ export const fetchReviewsById = async id => {
 		Notify.failure(`${error.message}`);
 	}
 };
+
+export const fetchByQuery = async query => {
+	try {
+		const results = await axios.get(`search/movie?query=${query}`);
+		console.log("results.data.results", results.data.results);
+
+		return results.data.results;
+	} catch (error) {
+		Notify.failure(`${error.message}`);
+	}
+};
