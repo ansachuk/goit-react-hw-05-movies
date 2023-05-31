@@ -1,20 +1,22 @@
 .title {
-	margin-bottom: 40px;
+	font-size: 32px;
+	color: rgb(65, 83, 99);
+	margin-bottom: 20px;
 }
 
 .wrapper {
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: 25px;
 
 	& a {
-		width: calc((100% - 32px) / 5);
+		width: calc((100% - 100px) / 5);
 		overflow: hidden;
 
-		margin-bottom: 16px;
+		margin-bottom: 12px;
 
-		filter: grayscale(0.3);
+		filter: grayscale(0.25);
 
 		transition: filter 200ms ease;
 		transition: transform 200ms ease;
@@ -22,6 +24,6 @@
 
 	& a:hover {
 		filter: grayscale(0);
-		transform: scale(1.03);
+		transform: scale(1.04);
 	}
 }

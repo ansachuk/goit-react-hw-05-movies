@@ -1,6 +1,3 @@
-import React from "react";
-// import PropTypes from "prop-types";
-
 import { LineWobble } from "@uiball/loaders";
 
 import css from "./Fallback.module.scss";
@@ -12,5 +9,3 @@ export default function Fallback() {
 		</div>
 	);
 }
-
-Fallback.propTypes = {};

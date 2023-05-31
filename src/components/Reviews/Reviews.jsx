@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
-import { fetchReviewsById } from "../../utils/fetchMovies";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
+import { fetchReviewsById } from "../../utils/fetchMovies";
+import css from "./Reviews.module.scss";
 export default function Reviews() {
 	const { movieId } = useParams();
 	const [reviews, setReviews] = useState(null);
@@ -16,8 +17,8 @@ export default function Reviews() {
 		<ul>
 			{reviews?.length ? (
 				reviews.map(review => (
-					<li key={review.id}>
-						<h3>Author:{review.author}</h3>
+					<li key={review.id} className={css.review}>
+						<h3 className={css.authorName}>Author:{review.author}</h3>
 						<p>{review.content}</p>
 					</li>
 				))

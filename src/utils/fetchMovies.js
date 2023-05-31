@@ -8,7 +8,6 @@ axios.defaults.headers.common["Authorization"] =
 export const fetchTrendingMovies = async () => {
 	try {
 		const trending = await axios.get(`trending/movie/day`);
-		console.log("trending.data", trending.data.results);
 
 		return trending.data.results;
 	} catch (error) {
@@ -19,7 +18,6 @@ export const fetchTrendingMovies = async () => {
 export const fetchMovieById = async id => {
 	try {
 		const movie = await axios.get(`movie/${id}`);
-		console.log(movie.data);
 
 		return movie.data;
 	} catch (error) {
@@ -30,7 +28,6 @@ export const fetchMovieById = async id => {
 export const fetchCastById = async id => {
 	try {
 		const cast = await axios.get(`movie/${id}/credits`);
-		console.log(cast.data.cast);
 
 		return cast.data.cast;
 	} catch (error) {
@@ -41,7 +38,6 @@ export const fetchCastById = async id => {
 export const fetchReviewsById = async id => {
 	try {
 		const reviews = await axios.get(`movie/${id}/reviews`);
-		console.log(reviews.data.results);
 
 		return reviews.data.results;
 	} catch (error) {
@@ -52,7 +48,6 @@ export const fetchReviewsById = async id => {
 export const fetchByQuery = async query => {
 	try {
 		const results = await axios.get(`search/movie?query=${query}`);
-		console.log("results.data.results", results.data.results);
 
 		return results.data.results;
 	} catch (error) {
