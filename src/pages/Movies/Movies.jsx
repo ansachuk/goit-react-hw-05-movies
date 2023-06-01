@@ -3,6 +3,7 @@ import { Link, useSearchParams, useLocation } from "react-router-dom";
 
 import MovieItem from "components/MovieItem/MovieItem";
 import { fetchByQuery } from "utils/fetchMovies";
+import useDebounce from "hooks/useDebounce";
 import css from "./Movies.module.scss";
 
 export default function Movies() {
@@ -11,16 +12,18 @@ export default function Movies() {
 	const query = searchParams.get("query") ?? "";
 	const location = useLocation();
 
+	const debouncedQuery = useDebounce(query, 500);
+
 	const updateSearchParams = query => {
 		const nextSearchParams = query.trim() !== "" ? { query } : {};
 		setSearchParams(nextSearchParams);
 	};
 
 	useEffect(() => {
-		if (query.trim().length > 1) {
-			fetchByQuery(query).then(setSearchedMovies);
+		if (debouncedQuery.trim().length > 1) {
+			fetchByQuery(debouncedQuery).then(setSearchedMovies);
 		} else return setSearchedMovies([]);
-	}, [query]);
+	}, [debouncedQuery]);
 
 	return (
 		<>
